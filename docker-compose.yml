@@ -37,6 +37,10 @@ services:
             DB_DATABASE: ${POSTGRES_DATABASE}
             DB_USERNAME: ${POSTGRES_USER}
             DB_PASSWORD: ${POSTGRES_PASSWORD}
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PASSWORD: ${REDIS_HOST}
+            REDIS_PORT: ${REDIS_PORT}
+            CACHE_DRIVER: "redis"
     pg:
         container_name: "pg-dollars"
         image: postgres:${POSTGRES_VERSION}
@@ -56,5 +60,13 @@ services:
         working_dir: /app
         command: npm run dev
 
+    redis:
+        container_name: "redis-dollars"
+        image: redis:${REDIS_VERSION}
+        volumes:
+            - redisdata:/data
+        hostname: ${REDIS_HOST}
+
 volumes:
     pgdata:
+    redisdata:
