@@ -30,8 +30,9 @@ RUN apt-get update && apt-get upgrade -y \
     memcached \
     wget \
     unzip \
-    zlib1g-dev \
-    && docker-php-ext-install -j$(nproc) \
+    zlib1g-dev;
+
+RUN docker-php-ext-install -j$(nproc) \
     bcmath \
     bz2 \
     calendar \
@@ -69,3 +70,8 @@ RUN docker-php-ext-install -j$(nproc) gd \
     && rm -rf /tmp/* /var/tmp/*;
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+#php artisan key:generate
+#php artisan migrate
+#php artisan make:filament-user
+
