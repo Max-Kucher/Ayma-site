@@ -9,13 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "ext-simplexml": "*",
+        "darkaonline/l5-swagger": "^8.5",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8",
-        "ext-simplexml": "*"
+        "laravel/tinker": "^2.8"
     },
     "require-dev": {
         "beyondcode/laravel-er-diagram-generator": "^2.0",

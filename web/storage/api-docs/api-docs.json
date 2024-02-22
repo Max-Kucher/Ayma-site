@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ayma website API",
+        "description": "This API is designed to work with the backend of the site through AJAX requests from the frontend part of the application.",
+        "contact": {
+            "email": "mkuchirov@gmail.com"
+        },
+        "license": {
+            "name": "API License",
+            "url": "URL-to-your-api-license"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/languages": {
+            "get": {
+                "tags": [
+                    "Languages"
+                ],
+                "summary": "Get list of languages",
+                "operationId": "ba7d9cb5e91615e001d914b1c754e52a",
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Language"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Language": {
+                "title": "Language",
+                "description": "Language entity",
+                "properties": {
+                    "lang_code": {
+                        "description": "Language code",
+                        "type": "string"
+                    },
+                    "locale": {
+                        "description": "Language locale",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the language",
+                        "type": "string"
+                    },
+                    "is_default": {
+                        "description": "Indicates if this language is the default language",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Languages",
+            "description": "Everything related to languages"
+        }
+    ]
+}
