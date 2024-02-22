@@ -17,4 +17,12 @@ class SeoSettingDescription extends Model
     {
         return $this->belongsTo(SeoSetting::class);
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function language(): BelongsTo
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

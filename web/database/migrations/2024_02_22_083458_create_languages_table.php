@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seo_settings', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            $table->string('lang_code', 2);
+            $table->string('locale', 5);
+            $table->boolean('is_default')->default(false);
+            $table->string('name', 64);
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seo_settings');
+        Schema::dropIfExists('languages');
     }
 };

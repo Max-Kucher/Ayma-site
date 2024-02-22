@@ -12,18 +12,44 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Models\Language;
 
 class SeoSettingResource extends Resource
 {
     protected static ?string $model = SeoSetting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
-
     public static function form(Form $form): Form
     {
+        $tabs = [];
+
+        foreach (Language::all() as $language) {
+            $tabs[] = Forms\Components\Tabs\Tab::make($language->name)
+                ->schema([
+                    Forms\Components\TextInput::make('titles.' . $language->lang_code)
+                        ->label("Title ($language->lang_code")
+                        ->required(),
+                    Forms\Components\Textarea::make('meta_descriptions.' . $language->lang_code)
+                        ->label("Meta Description ($language->lang_code)")
+                        ->nullable(),
+                    Forms\Components\Textarea::make('meta_keywords.' . $language->lang_code)
+                        ->label("Meta Keywords ($language->lang_code)")
+                        ->nullable(),
+                ]);
+        }
+
         return $form
             ->schema([
-                //
+                Forms\Components\Section::make('General')
+                    ->schema([
+                        Forms\Components\TextInput::make('route')
+                            ->label('Route')
+                            ->required(),
+                    ]),
+                Forms\Components\Section::make('Descriptions')
+                    ->schema([
+                        Forms\Components\Tabs::make('DescriptionsTabs')
+                            ->tabs($tabs),
+                    ]),
             ]);
     }
 

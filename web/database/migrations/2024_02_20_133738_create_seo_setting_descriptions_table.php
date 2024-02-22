@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('seo_setting_descriptions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('seo_setting_id'); // Ссылка на основную таблицу SEO настроек
-            $table->string('locale'); // Код языка (например, 'en', 'fr', 'es' и т.д.)
+            $table->unsignedBigInteger('seo_setting_id');
+            $table->string('locale');
             $table->string('title');
             $table->text('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
 
             $table->foreign('seo_setting_id')->references('id')->on('seo_settings')->onDelete('cascade');
-            $table->unique(['seo_setting_id', 'locale']); // Уникальность для пары seo_setting_id и locale
+            $table->unique(['seo_setting_id', 'locale']);
 
             $table->timestamps();
         });
