@@ -26,26 +26,26 @@ class SeoSettingResource extends Resource
             $tabs[] = Forms\Components\Tabs\Tab::make($language->name)
                 ->schema([
                     Forms\Components\TextInput::make('titles.' . $language->lang_code)
-                        ->label("Title ($language->lang_code")
+                        ->label(__('settings.seo.title', ['language' => $language->lang_code]))
                         ->required(),
                     Forms\Components\Textarea::make('meta_descriptions.' . $language->lang_code)
-                        ->label("Meta Description ($language->lang_code)")
+                        ->label(__('settings.seo.meta_description', ['language' => $language->lang_code]))
                         ->nullable(),
                     Forms\Components\Textarea::make('meta_keywords.' . $language->lang_code)
-                        ->label("Meta Keywords ($language->lang_code)")
+                        ->label(__('settings.seo.meta_keywords', ['language' => $language->lang_code]))
                         ->nullable(),
                 ]);
         }
 
         return $form
             ->schema([
-                Forms\Components\Section::make('General')
+                Forms\Components\Section::make(__('settings.general'))
                     ->schema([
                         Forms\Components\TextInput::make('route')
-                            ->label('Route')
+                            ->label(__('settings.seo.route'))
                             ->required(),
                     ]),
-                Forms\Components\Section::make('Descriptions')
+                Forms\Components\Section::make(__('settings.sections.description'))
                     ->schema([
                         Forms\Components\Tabs::make('DescriptionsTabs')
                             ->tabs($tabs),

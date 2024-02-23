@@ -19,15 +19,19 @@ class LanguageResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('General')->schema([
+                Forms\Components\Section::make(__('settings.general'))->schema([
                     Forms\Components\TextInput::make('lang_code')
+                        ->label(__('settings.lang_code'))
                         ->required()
                         ->maxLength(2),
                     Forms\Components\TextInput::make('locale')
+                        ->label(__('settings.languages.locale'))
                         ->required()
                         ->maxLength(5),
-                    Forms\Components\Checkbox::make('is_default'),
+                    Forms\Components\Checkbox::make('is_default')
+                        ->label(__('settings.is_default')),
                     Forms\Components\TextInput::make('name')
+                        ->label(__('settings.name'))
                         ->required()
                         ->maxLength(64),
                 ]),
