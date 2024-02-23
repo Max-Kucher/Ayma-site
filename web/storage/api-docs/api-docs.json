@@ -36,6 +36,45 @@
                     }
                 }
             }
+        },
+        "/api/translations/{locale}": {
+            "get": {
+                "tags": [
+                    "Localisation"
+                ],
+                "summary": "Retrieves translations for the specified locale",
+                "description": "Returns translations in JSON format. If no locale is specified, the default locale is used.",
+                "operationId": "getTranslations",
+                "parameters": [
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "description": "Locale code (for example 'en' or 'ru')",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Locale not found"
+                    }
+                }
+            }
         }
     },
     "components": {

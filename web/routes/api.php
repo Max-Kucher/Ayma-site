@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LanguageApiController;
+use App\Http\Controllers\Api\LocalizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/translations/{locale?}', [LocalizationController::class, 'translations']);
 Route::apiResource('languages', LanguageApiController::class)->only(['index']);
