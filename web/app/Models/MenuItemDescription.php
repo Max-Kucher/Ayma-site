@@ -6,24 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class SeoSettingDescription extends Model
+class MenuItemDescription extends Model
 {
     use HasFactory;
 
-    /**
-     * @return BelongsTo
-     */
-    public function seoSetting(): BelongsTo
+    public function menuItem(): BelongsTo
     {
-        return $this->belongsTo(SeoSetting::class);
+        return $this->belongsTo(MenuItem::class);
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function language(): BelongsTo
     {
         return $this->belongsTo(Language::class);
     }
-
 }

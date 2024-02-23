@@ -1,0 +1,18 @@
+{
+    "settings.general": "Общие",
+    "settings.name": "Имя",
+    "settings.is_default": "По умолчанию",
+    "settings.lang_code": "Код языка",
+    "settings.sections.description": "Описания",
+    "settings.priority": "Приоритет",
+
+    "settings.languages.locale": "Локаль",
+
+    "settings.seo.route": "Маршрут",
+    "settings.seo.title": "Заголовок (:language)",
+    "settings.seo.meta_description": "Мета-описание (:language)",
+    "settings.seo.meta_keywords": "Мета-ключевые слова (:language)",
+
+    "settings.menu.parent_id": "Родительский пункт меню",
+    "settings.menu.link": "Ссылка"
+}

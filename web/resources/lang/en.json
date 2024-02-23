@@ -10,5 +10,7 @@
     "settings.seo.route": "Route",
     "settings.seo.title": "Title (:language)",
     "settings.seo.meta_description": "Meta description (:language)",
-    "settings.seo.meta_keywords": "Meta keywords (:language)"
+    "settings.seo.meta_keywords": "Meta keywords (:language)",
+
+    "settings.menu.parent_id": "Parent menu item",
 }
