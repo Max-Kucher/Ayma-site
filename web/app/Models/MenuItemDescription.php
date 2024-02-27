@@ -10,6 +10,21 @@ class MenuItemDescription extends Model
 {
     use HasFactory;
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     */
+    protected $fillable = [
+        'name',
+        'language_id',
+    ];
+
     public function menuItem(): BelongsTo
     {
         return $this->belongsTo(MenuItem::class);

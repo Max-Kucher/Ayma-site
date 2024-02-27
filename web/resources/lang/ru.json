@@ -7,6 +7,7 @@
     "settings.priority": "Приоритет",
 
     "settings.languages.locale": "Локаль",
+    "settings.languages.name": "Язык",
 
     "settings.seo.route": "Маршрут",
     "settings.seo.title": "Заголовок (:language)",

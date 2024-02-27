@@ -3,8 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MenuItemResource\Pages;
+use App\Filament\Resources\MenuItemResource\RelationManagers\MenuItemsRelationManager;
 use App\Models\Language;
 use App\Models\MenuItem;
+use App\Models\MenuItemDescription;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -20,28 +22,16 @@ class MenuItemResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $tabs = [];
-        foreach (Language::all() as $language) {
-            $tabs[] = Forms\Components\Tabs\Tab::make($language->name)
-                ->schema([
-                    Forms\Components\TextInput::make('names.' . $language->lang_code)
-                        ->label(__('settings.name'))
-                        ->required(),
-                ]);
-        }
-
         $menuItems = MenuItem::whereNull('parent_id')
             ->with(['description' => function ($query) {
                 $query->select('menu_item_id', 'name');
             }])
-            ->get(['id'])
-            ->map(function ($menuItem) {
-                return [
-                    'id' => $menuItem->id,
-                    'name' => $menuItem->description->name ?? 'Undefined',
-                ];
+            ->get()
+            ->mapWithKeys(function ($item) {
+                // Предполагая, что релейшен description может быть null или возвращать одну запись.
+                $name = optional($item->description)->name ?? 'Undefined';
+                return [$item->id => $name];
             });
-
 
         return $form
             ->schema([
@@ -54,16 +44,12 @@ class MenuItemResource extends Resource
                         Forms\Components\TextInput::make('priority')
                             ->label(__('settings.priority'))
                             ->numeric()
+                            ->maxValue(100)
                             ->default(0),
                         Select::make('parent_id')
                             ->label(__('settings.menu.parent_id'))
-                            ->options($menuItems)
+                            ->options($menuItems->all())
                             ->searchable()
-                    ]),
-                Forms\Components\Section::make(__('settings.sections.description'))
-                    ->schema([
-                        Forms\Components\Tabs::make('DescriptionsTabs')
-                            ->tabs($tabs),
                     ]),
             ]);
     }
@@ -72,7 +58,10 @@ class MenuItemResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('description.name')
+                    ->label(__('settings.name')),
+                Tables\Columns\TextColumn::make('link')
+                    ->label(__('settings.menu.link')),
             ])
             ->filters([
                 //
@@ -90,7 +79,7 @@ class MenuItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            MenuItemsRelationManager::class,
         ];
     }
 

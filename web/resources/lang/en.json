@@ -6,6 +6,7 @@
     "settings.sections.description": "Descriptions",
 
     "settings.languages.locale": "Locale",
+    "settings.languages.name": "Language",
 
     "settings.seo.route": "Route",
     "settings.seo.title": "Title (:language)",
