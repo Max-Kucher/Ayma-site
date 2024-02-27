@@ -52,13 +52,13 @@ services:
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
             POSTGRES_DB: ${POSTGRES_DATABASE}
 
-    npm:
-        container_name: "node-dollars"
-        image: node:${NODE_VERSION}
-        volumes:
-            - ./web:/app
-        working_dir: /app
-        command: npm run dev
+#    npm:
+#        container_name: "node-dollars"
+#        image: node:${NODE_VERSION}
+#        volumes:
+#            - ./web:/app
+#        working_dir: /app
+#        command: npm run dev
 
     redis:
         container_name: "redis-dollars"

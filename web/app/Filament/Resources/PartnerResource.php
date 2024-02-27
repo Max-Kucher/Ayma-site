@@ -10,7 +10,39 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use OpenApi\Attributes\OpenApi as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="Partner",
+ *     type="object",
+ *     title="Partner",
+ *     description="The partner model representation.",
+ *     @OA\Property(
+ *         property="file_url",
+ *         type="string",
+ *         format="uri",
+ *         description="The URL to the partner's file."
+ *     ),
+ *     @OA\Property(
+ *         property="link",
+ *         type="string",
+ *         format="uri",
+ *         description="The URL to the partner's website."
+ *     ),
+ *     @OA\Property(
+ *         property="location",
+ *         type="string",
+ *         enum={"top", "bottom"},
+ *         description="The location where the partner's information is displayed, either 'top' or 'bottom'."
+ *     ),
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         description="The name of the partner."
+ *     )
+ * )
+ */
 class PartnerResource extends Resource
 {
     protected static ?string $model = Partner::class;
@@ -23,7 +55,7 @@ class PartnerResource extends Resource
                     ->schema([
                         Forms\Components\FileUpload::make('file_path')
                             ->disk('local')
-                            ->directory('partners/files')
+                            ->directory('public/partners/files')
                             ->required()
                             ->label(__('file')),
                         Forms\Components\Select::make('location')

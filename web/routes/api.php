@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\MenuApiController;
+use App\Http\Controllers\Api\PartnerApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LanguageApiController;
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/translations/{locale?}', [LocalizationController::class, 'translations']);
 Route::apiResource('languages', LanguageApiController::class)->only(['index']);
 Route::apiResource('menus', MenuApiController::class)->only(['index']);
+Route::apiResource('partners', PartnerApiController::class)->only(['index']);
