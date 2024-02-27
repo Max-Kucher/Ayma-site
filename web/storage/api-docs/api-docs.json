@@ -75,6 +75,37 @@
                     }
                 }
             }
+        },
+        "/api/menus": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Get the list of menu items",
+                "description": "Retrieves a list of menu items with optional nested children.",
+                "operationId": "getMenuItems",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MenuItem"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -101,6 +132,28 @@
                     }
                 },
                 "type": "object"
+            },
+            "MenuItem": {
+                "title": "Menu item",
+                "description": "A single menu item with optional nested children.",
+                "properties": {
+                    "link": {
+                        "description": "The URL link for the menu item.",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the menu item.",
+                        "type": "string"
+                    },
+                    "children": {
+                        "description": "Nested children of the menu item.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MenuItem"
+                        }
+                    }
+                },
+                "type": "object"
             }
         }
     },
@@ -108,6 +161,10 @@
         {
             "name": "Languages",
             "description": "Everything related to languages"
+        },
+        {
+            "name": "Menu",
+            "description": "Everything related to menus"
         }
     ]
 }

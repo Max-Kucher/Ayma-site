@@ -7,7 +7,32 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use OpenApi\Attributes\OpenApi as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="MenuItem",
+ *     type="object",
+ *     title="Menu item",
+ *     description="A single menu item with optional nested children.",
+ *     @OA\Property(
+ *         property="link",
+ *         type="string",
+ *         description="The URL link for the menu item."
+ *     ),
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         description="The name of the menu item."
+ *     ),
+ *     @OA\Property(
+ *         property="children",
+ *         type="array",
+ *         description="Nested children of the menu item.",
+ *         @OA\Items(ref="#/components/schemas/MenuItem")
+ *     )
+ * )
+ */
 class MenuItem extends Model
 {
     use HasFactory;
