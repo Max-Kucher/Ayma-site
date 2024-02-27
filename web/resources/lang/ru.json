@@ -15,5 +15,7 @@
     "settings.seo.meta_keywords": "Мета-ключевые слова (:language)",
 
     "settings.menu.parent_id": "Родительский пункт меню",
-    "settings.menu.link": "Ссылка"
+    "settings.menu.link": "Ссылка",
+
+    "file": "Файл"
 }

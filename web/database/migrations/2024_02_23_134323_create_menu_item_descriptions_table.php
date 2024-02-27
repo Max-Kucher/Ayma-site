@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('menu_item_id');
             $table->unsignedBigInteger('language_id');
             $table->string('name'); // Название пункта меню
-
+            
             $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });

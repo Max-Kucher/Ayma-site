@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MenuItemResource\Pages;
-use App\Filament\Resources\MenuItemResource\RelationManagers\MenuItemsRelationManager;
+use App\Filament\Resources\MenuItemResource\RelationManagers\PartnersRelationManager;
 use App\Models\Language;
 use App\Models\MenuItem;
 use App\Models\MenuItemDescription;
@@ -79,7 +79,7 @@ class MenuItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            MenuItemsRelationManager::class,
+            PartnersRelationManager::class,
         ];
     }
 
