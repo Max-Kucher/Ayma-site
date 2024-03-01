@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('work_cases', function (Blueprint $table) {
             $table->id();
-            $table->string('file_path'); // Путь к файлу
-            $table->string('link')->nullable(); // Ссылка
+            $table->string('file_path');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('work_cases');
     }
 };

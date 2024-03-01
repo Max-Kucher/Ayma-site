@@ -4,6 +4,7 @@
     "settings.is_default": "По умолчанию",
     "settings.lang_code": "Код языка",
     "settings.sections.description": "Описания",
+    "settings.description": "Описание",
     "settings.priority": "Приоритет",
 
     "settings.languages.locale": "Локаль",

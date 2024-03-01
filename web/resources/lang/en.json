@@ -4,6 +4,7 @@
     "settings.is_default": "Is default",
     "settings.lang_code": "Language code",
     "settings.sections.description": "Descriptions",
+    "settings.description": "Description",
 
     "settings.languages.locale": "Locale",
     "settings.languages.name": "Language",
@@ -13,5 +14,5 @@
     "settings.seo.meta_description": "Meta description (:language)",
     "settings.seo.meta_keywords": "Meta keywords (:language)",
 
-    "settings.menu.parent_id": "Parent menu item",
+    "settings.menu.parent_id": "Parent menu item"
 }

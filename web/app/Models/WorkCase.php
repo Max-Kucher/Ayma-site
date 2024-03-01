@@ -6,39 +6,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use OpenApi\Attributes\OpenApi as OA;
 
 /**
  * @OA\Schema(
- *     schema="Partner",
+ *     schema="WorkCase",
  *     type="object",
- *     title="Partner",
- *     description="The partner model representation.",
+ *     title="Work Case",
+ *     description="Case model representation.",
  *     @OA\Property(
  *         property="file_url",
  *         type="string",
  *         format="uri",
- *         description="The URL to the partner's file."
+ *         description="The URL to the case's file."
  *     ),
  *     @OA\Property(
  *         property="link",
  *         type="string",
  *         format="uri",
- *         description="The URL to the partner's website."
- *     ),
- *     @OA\Property(
- *         property="location",
- *         type="string",
- *         enum={"top", "bottom"},
- *         description="The location where the partner's information is displayed, either 'top' or 'bottom'."
+ *         description="The URL to the case's website."
  *     ),
  *     @OA\Property(
  *         property="name",
  *         type="string",
- *         description="The name of the partner."
+ *         description="The name of the case."
+ *     )
+ *     @OA\Property(
+ *         property="description",
+ *         type="string",
+ *         description="Full description of the case."
  *     )
  * )
  */
-class Partner extends Model
+class WorkCase extends Model
 {
     use HasFactory;
 
@@ -52,17 +52,16 @@ class Partner extends Model
     protected $fillable = [
         'link',
         'file_path',
-        'location',
     ];
 
     public function description(): HasOne
     {
         $lang_id = session('current_language_id');
-        return $this->hasOne(PartnerDescription::class)->where('language_id', $lang_id);
+        return $this->hasOne(WorkCaseDescription::class)->where('language_id', $lang_id);
     }
 
     public function descriptions(): HasMany
     {
-        return $this->hasMany(PartnerDescription::class);
+        return $this->hasMany(WorkCaseDescription::class);
     }
 }

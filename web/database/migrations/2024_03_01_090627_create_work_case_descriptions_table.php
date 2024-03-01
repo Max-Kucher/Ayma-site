@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('work_case_descriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('file_path'); // Путь к файлу
-            $table->string('link')->nullable(); // Ссылка
-            $table->timestamps();
+            $table->foreignId('work_case_id')->constrained()->onDelete('cascade');
+            $table->foreignId('language_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('description');
         });
-
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('work_case_descriptions');
     }
 };
