@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MenuApiController;
 use App\Http\Controllers\Api\PartnerApiController;
+use App\Http\Controllers\Api\WorkCaseApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LanguageApiController;
@@ -26,3 +27,4 @@ Route::get('/translations/{locale?}', [LocalizationController::class, 'translati
 Route::apiResource('languages', LanguageApiController::class)->only(['index']);
 Route::apiResource('menus', MenuApiController::class)->only(['index']);
 Route::apiResource('partners', PartnerApiController::class)->only(['index']);
+Route::apiResource('work-cases', WorkCaseApiController::class)->only(['index']);

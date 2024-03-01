@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('work_case_id')->constrained()->onDelete('cascade');
             $table->foreignId('language_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
         });
     }
 

@@ -30,7 +30,7 @@ use OpenApi\Attributes\OpenApi as OA;
  *         property="name",
  *         type="string",
  *         description="The name of the case."
- *     )
+ *     ),
  *     @OA\Property(
  *         property="description",
  *         type="string",
