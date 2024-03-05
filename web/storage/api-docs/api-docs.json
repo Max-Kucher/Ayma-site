@@ -106,6 +106,110 @@
                     }
                 }
             }
+        },
+        "/api/partners": {
+            "get": {
+                "tags": [
+                    "Partners"
+                ],
+                "summary": "Get the list of partners",
+                "description": "Retrieves a list of partners.",
+                "operationId": "getPartners",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Partner"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/settings": {
+            "get": {
+                "tags": [
+                    "Setting"
+                ],
+                "summary": "Get the list of settings",
+                "description": "Retrieves a list of settings.",
+                "operationId": "getSettings",
+                "parameters": [
+                    {
+                        "name": "as-hash",
+                        "in": "query",
+                        "description": "When set, the settings are returned as a hash map of key-value pairs.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Setting"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/work-cases": {
+            "get": {
+                "tags": [
+                    "WorkCase"
+                ],
+                "summary": "Get the list of work cases",
+                "description": "Retrieves a list of work cases.",
+                "operationId": "getWorkCases",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkCase"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -154,6 +258,75 @@
                     }
                 },
                 "type": "object"
+            },
+            "Partner": {
+                "title": "Partner",
+                "description": "The partner model representation.",
+                "properties": {
+                    "file_url": {
+                        "description": "The URL to the partner's file.",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "link": {
+                        "description": "The URL to the partner's website.",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "location": {
+                        "description": "The location where the partner's information is displayed, either 'top' or 'bottom'.",
+                        "type": "string",
+                        "enum": [
+                            "top",
+                            "bottom"
+                        ]
+                    },
+                    "name": {
+                        "description": "The name of the partner.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Setting": {
+                "title": "Setting",
+                "description": "Setting model representation.",
+                "properties": {
+                    "key": {
+                        "description": "The setting key.",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "The setting value.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "WorkCase": {
+                "title": "Work Case",
+                "description": "Case model representation.",
+                "properties": {
+                    "file_url": {
+                        "description": "The URL to the case's file.",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "link": {
+                        "description": "The URL to the case's website.",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "name": {
+                        "description": "The name of the case.",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Full description of the case.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         }
     },
@@ -165,6 +338,18 @@
         {
             "name": "Menu",
             "description": "Everything related to menus"
+        },
+        {
+            "name": "Partners",
+            "description": "Everything related to partners"
+        },
+        {
+            "name": "Partners",
+            "description": "Everything related to partners"
+        },
+        {
+            "name": "Partners",
+            "description": "Everything related to partners"
         }
     ]
 }

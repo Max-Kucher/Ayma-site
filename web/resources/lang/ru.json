@@ -18,5 +18,8 @@
     "settings.menu.parent_id": "Родительский пункт меню",
     "settings.menu.link": "Ссылка",
 
-    "file": "Файл"
+    "file": "Файл",
+    "settings.setting.key": "Ключ",
+    "settings.setting.value": "Значение",
+    "settings.setting.key.filter.placeholder": "Используйте ключ настройки для поиска..."
 }
