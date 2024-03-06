@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('priority');
+            $table->integer('priority')->unsigned()->default(0); // Приоритет
             $table->timestamps();
         });
     }
