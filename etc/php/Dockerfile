@@ -69,10 +69,6 @@ RUN docker-php-ext-install -j$(nproc) gd \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* /var/tmp/*;
 
-# RUN pecl install xhprof && docker-php-ext-enable xhprof;
-
-# RUN apt update && apt install graphviz;
-
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 #php artisan key:generate

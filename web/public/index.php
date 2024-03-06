@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+//var_dump(php_ini_loaded_file(), php_ini_scanned_files());die;
 
 define('LARAVEL_START', microtime(true));
 
