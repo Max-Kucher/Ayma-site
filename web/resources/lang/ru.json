@@ -21,5 +21,7 @@
     "file": "Файл",
     "settings.setting.key": "Ключ",
     "settings.setting.value": "Значение",
-    "settings.setting.key.filter.placeholder": "Используйте ключ настройки для поиска..."
+    "settings.setting.key.filter.placeholder": "Используйте ключ настройки для поиска...",
+
+    "settings.services.items": "Пункты сервиса"
 }

@@ -11,7 +11,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ServicesRelationManager extends RelationManager
+class ServiceDescriptionsRelationManager extends RelationManager
 {
     protected static string $relationship = 'descriptions';
 
@@ -21,15 +21,20 @@ class ServicesRelationManager extends RelationManager
 
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->label(__('settings.name'))
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\Select::make('language_id')
                     ->label(__('settings.languages.name'))
                     ->required()
                     ->options($languages->pluck('name', 'id')->all())
                     ->searchable(),
+                Forms\Components\Section::make(__('settings.description'))
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->label(__('settings.name'))
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\RichEditor::make('description')
+                            ->label(__('settings.description'))
+                    ]),
             ]);
     }
 

@@ -3,19 +3,17 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ServiceResource\Pages;
-use App\Filament\Resources\ServiceResource\RelationManagers\ServicesRelationManager;
+use App\Filament\Resources\ServiceResource\RelationManagers\ServiceDescriptionsRelationManager;
 use App\Models\Language;
-use App\Models\MenuItem;
-use App\Models\MenuItemDescription;
 use App\Models\Service;
+use App\Models\ServiceItem;
+use App\Models\ServiceItemDescription;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Forms\Components\Select;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
 
 class ServiceResource extends Resource
 {
@@ -42,8 +40,6 @@ class ServiceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('description.name')
                     ->label(__('settings.name')),
-                Tables\Columns\TextColumn::make('link')
-                    ->label(__('settings.menu.link')),
             ])
             ->filters([
                 //
@@ -61,7 +57,7 @@ class ServiceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            ServicesRelationManager::class,
+            ServiceDescriptionsRelationManager::class,
         ];
     }
 
