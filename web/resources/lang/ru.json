@@ -23,5 +23,6 @@
     "settings.setting.value": "Значение",
     "settings.setting.key.filter.placeholder": "Используйте ключ настройки для поиска...",
 
-    "settings.services.items": "Пункты сервиса"
+    "settings.services.items": "Пункты сервиса",
+    "settings.services.service": "Сервис"
 }

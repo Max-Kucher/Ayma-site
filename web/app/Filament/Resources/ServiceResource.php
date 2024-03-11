@@ -4,20 +4,18 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ServiceResource\Pages;
 use App\Filament\Resources\ServiceResource\RelationManagers\ServiceDescriptionsRelationManager;
-use App\Models\Language;
 use App\Models\Service;
-use App\Models\ServiceItem;
-use App\Models\ServiceItemDescription;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Collection;
 
 class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
+
+    protected static ?string $navigationGroup = 'Services';
 
     public static function form(Form $form): Form
     {
