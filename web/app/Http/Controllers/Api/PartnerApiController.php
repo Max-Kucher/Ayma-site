@@ -55,7 +55,7 @@ class PartnerApiController extends Controller
             $query->select('partner_id', 'name');
         }])->get(['id', 'file_path', 'link', 'location'])->map(function ($partner) {
 
-            $partner->file_url = asset('storage/' . $partner->file_path);
+            $partner->file_url = asset(str_replace('public/', 'storage/', $partner->file_path));
 
             return [
                 'file_path' => $partner->file_url,

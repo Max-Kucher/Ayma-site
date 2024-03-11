@@ -32,4 +32,5 @@ Route::apiResource('partners', PartnerApiController::class)->only(['index']);
 Route::apiResource('work-cases', WorkCaseApiController::class)->only(['index']);
 Route::apiResource('settings', SettingApiController::class)->only(['index']);
 Route::apiResource('services', ServiceApiController::class)->only(['index']);
+Route::apiResource('blog', ServiceApiController::class)->only(['index']);
 

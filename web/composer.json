@@ -10,14 +10,15 @@
     "require": {
         "php": "^8.3",
         "ext-simplexml": "*",
-        "ext-xhprof": "*",
         "darkaonline/l5-swagger": "^8.5",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
+        "laminas/laminas-http": "^2.5",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "zendframework/zend-feed": "^2.6"
     },
     "require-dev": {
         "beyondcode/laravel-er-diagram-generator": "^2.0",
