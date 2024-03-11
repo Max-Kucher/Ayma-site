@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MenuApiController;
 use App\Http\Controllers\Api\PartnerApiController;
+use App\Http\Controllers\Api\ServiceApiController;
 use App\Http\Controllers\Api\SettingApiController;
 use App\Http\Controllers\Api\WorkCaseApiController;
 use Illuminate\Http\Request;
@@ -30,3 +31,5 @@ Route::apiResource('menus', MenuApiController::class)->only(['index']);
 Route::apiResource('partners', PartnerApiController::class)->only(['index']);
 Route::apiResource('work-cases', WorkCaseApiController::class)->only(['index']);
 Route::apiResource('settings', SettingApiController::class)->only(['index']);
+Route::apiResource('services', ServiceApiController::class)->only(['index']);
+

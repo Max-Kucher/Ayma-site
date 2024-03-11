@@ -138,6 +138,37 @@
                 }
             }
         },
+        "/api/services": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Get the list of services",
+                "description": "Retrieves a list of services including related service items and descriptions.",
+                "operationId": "getServices",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Service"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Services not found"
+                    }
+                }
+            }
+        },
         "/api/settings": {
             "get": {
                 "tags": [
@@ -288,6 +319,73 @@
                 },
                 "type": "object"
             },
+            "Service": {
+                "title": "Service",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the Service",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "description": {
+                        "properties": {
+                            "name": {
+                                "description": "Name of the Service Description",
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "Detailed description of the Service",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "service_items": {
+                        "description": "List of related service items",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ServiceItem"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ServiceItem": {
+                "title": "Service Item",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the Service Item",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "description": "Name of the Service Item",
+                        "type": "string"
+                    },
+                    "description": {
+                        "properties": {
+                            "name": {
+                                "description": "Name of the Service Item Description",
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "Detailed description of the Service Item",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
             "Setting": {
                 "title": "Setting",
                 "description": "Setting model representation.",
@@ -342,6 +440,10 @@
         {
             "name": "Partners",
             "description": "Everything related to partners"
+        },
+        {
+            "name": "Services",
+            "description": "Everything related to services"
         },
         {
             "name": "Partners",

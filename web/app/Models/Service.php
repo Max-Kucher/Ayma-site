@@ -6,7 +6,44 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use OpenApi\Attributes\OpenApi as OA;
 
+/**
+ * @OA\Schema(
+ *     schema="Service",
+ *     type="object",
+ *     title="Service",
+ *     required={"id", "name"},
+ *     properties={
+ *         @OA\Property(
+ *             property="id",
+ *             type="integer",
+ *             format="int64",
+ *             description="Unique identifier for the Service"
+ *         ),
+ *         @OA\Property(
+ *             property="description",
+ *             type="object",
+ *             @OA\Property(
+ *                 property="name",
+ *                 type="string",
+ *                 description="Name of the Service Description"
+ *             ),
+ *             @OA\Property(
+ *                 property="description",
+ *                 type="string",
+ *                 description="Detailed description of the Service"
+ *             )
+ *         ),
+ *         @OA\Property(
+ *             property="service_items",
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/ServiceItem"),
+ *             description="List of related service items"
+ *         )
+ *     }
+ * )
+ */
 class Service extends Model
 {
     use HasFactory;

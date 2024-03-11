@@ -8,6 +8,41 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @OA\Schema(
+ *     schema="ServiceItem",
+ *     type="object",
+ *     title="Service Item",
+ *     required={"id", "name"},
+ *     properties={
+ *         @OA\Property(
+ *             property="id",
+ *             type="integer",
+ *             format="int64",
+ *             description="Unique identifier for the Service Item"
+ *         ),
+ *         @OA\Property(
+ *             property="name",
+ *             type="string",
+ *             description="Name of the Service Item"
+ *         ),
+ *         @OA\Property(
+ *             property="description",
+ *             type="object",
+ *             @OA\Property(
+ *                 property="name",
+ *                 type="string",
+ *                 description="Name of the Service Item Description"
+ *             ),
+ *             @OA\Property(
+ *                 property="description",
+ *                 type="string",
+ *                 description="Detailed description of the Service Item"
+ *             )
+ *         )
+ *     }
+ * )
+ */
 class ServiceItem extends Model
 {
     use HasFactory;
