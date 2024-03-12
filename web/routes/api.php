@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BlogApiController;
+use App\Http\Controllers\Api\FormApiController;
 use App\Http\Controllers\Api\MenuApiController;
 use App\Http\Controllers\Api\PartnerApiController;
 use App\Http\Controllers\Api\ServiceApiController;
@@ -34,4 +35,5 @@ Route::apiResource('work-cases', WorkCaseApiController::class)->only(['index']);
 Route::apiResource('settings', SettingApiController::class)->only(['index']);
 Route::apiResource('services', ServiceApiController::class)->only(['index']);
 Route::apiResource('blog', BlogApiController::class)->only(['index']);
+Route::apiResource('form', FormApiController::class)->only(['store']);
 

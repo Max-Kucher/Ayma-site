@@ -35,6 +35,7 @@ class ParseMediumRssFeed implements ShouldQueue
                 'title' => $entry->getTitle(),
                 'link' => $entry->getLink(),
                 'pubDate' => $entry->getDateModified(),
+                'description' => $entry->getDescription(),
             ];
         }
 
