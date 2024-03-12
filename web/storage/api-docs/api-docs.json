@@ -13,6 +13,60 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/blog": {
+            "get": {
+                "tags": [
+                    "Blog"
+                ],
+                "summary": "Retrieve a list of posts",
+                "operationId": "b3afc0dedfeaeacb8e78b6f8c858e059",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of posts",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "title": {
+                                                "description": "Title of the post",
+                                                "type": "string"
+                                            },
+                                            "link": {
+                                                "description": "URL link to the post",
+                                                "type": "string"
+                                            },
+                                            "pubDate": {
+                                                "properties": {
+                                                    "date": {
+                                                        "description": "Publication date of the post",
+                                                        "type": "string"
+                                                    },
+                                                    "timezone_type": {
+                                                        "description": "Type of the timezone",
+                                                        "type": "integer"
+                                                    },
+                                                    "timezone": {
+                                                        "description": "Timezone of the publication date",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content, no posts found"
+                    }
+                }
+            }
+        },
         "/api/languages": {
             "get": {
                 "tags": [
@@ -429,6 +483,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Blog",
+            "description": "Everything related to blog"
+        },
         {
             "name": "Languages",
             "description": "Everything related to languages"

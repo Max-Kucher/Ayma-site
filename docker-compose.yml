@@ -28,19 +28,20 @@ services:
         volumes:
             - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
             - "./web:/var/www/html"
+            - "./.env:/var/www/html/.env"
         env_file:
             - ./.env
-        environment:
-            DB_CONNECTION: pgsql
-            DB_HOST: ${POSTGRES_HOST}
-            DB_PORT: 5432
-            DB_DATABASE: ${POSTGRES_DATABASE}
-            DB_USERNAME: ${POSTGRES_USER}
-            DB_PASSWORD: ${POSTGRES_PASSWORD}
-            REDIS_HOST: ${REDIS_HOST}
-            REDIS_PASSWORD: ${REDIS_PASSWORD}
-            REDIS_PORT: ${REDIS_PORT}
-            CACHE_DRIVER: "redis"
+#        environment:
+#            DB_CONNECTION: pgsql
+#            DB_HOST: ${POSTGRES_HOST}
+#            DB_PORT: 5432
+#            DB_DATABASE: ${POSTGRES_DATABASE}
+#            DB_USERNAME: ${POSTGRES_USER}
+#            DB_PASSWORD: ${POSTGRES_PASSWORD}
+#            REDIS_HOST: ${REDIS_HOST}
+#            REDIS_PASSWORD: ${REDIS_PASSWORD}
+#            REDIS_PORT: ${REDIS_PORT}
+#            CACHE_DRIVER: "redis"
     pg:
         container_name: "pg-dollars"
         image: postgres:${POSTGRES_VERSION}

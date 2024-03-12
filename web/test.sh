@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd /var/www/html && /usr/local/bin/php artisan schedule:run >> /var/log/cron.log 2>&1

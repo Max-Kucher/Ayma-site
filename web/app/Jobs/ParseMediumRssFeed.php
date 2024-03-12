@@ -38,6 +38,6 @@ class ParseMediumRssFeed implements ShouldQueue
             ];
         }
 
-        Cache::put('medium_posts', $posts, 15 * 60);
+        Cache::put('medium_posts', $posts, 61);
     }
 }
