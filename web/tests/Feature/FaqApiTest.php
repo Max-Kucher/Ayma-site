@@ -6,25 +6,23 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class WorkCaseApiTest extends TestCase
+class FaqApiTest extends TestCase
 {
     /**
-     * Тест получения списка кейсов.
+     * Тест получения списка FAQ-ов.
      *
      * @return void
      */
-    public function testWorkCasesList(): void
+    public function testFaqsList(): void
     {
-        $response = $this->getJson('api/work-cases');
+        $response = $this->getJson('api/faqs');
 
         $response
             ->assertStatus(200)
             ->assertJsonStructure([
                 '*' => [
-                    'file_path',
-                    'link',
-                    'name',
-                    'description'
+                    'id',
+                    'description',
                 ]
             ]);
     }

@@ -67,6 +67,102 @@
                 }
             }
         },
+        "/api/faqs": {
+            "get": {
+                "tags": [
+                    "FAQs"
+                ],
+                "summary": "Get the list of FAQs",
+                "description": "Retrieves a list of FAQs.",
+                "operationId": "getFaqs",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Faq"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/form": {
+            "post": {
+                "tags": [
+                    "Forms"
+                ],
+                "summary": "Submit a new application",
+                "description": "Allows users to submit a new application with their contact details and comments.",
+                "operationId": "submitApplication",
+                "requestBody": {
+                    "description": "User application data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "type",
+                                    "name",
+                                    "phone",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "description": "Type of the application",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "Full name of the user",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Contact phone number",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Email address",
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "telegram": {
+                                        "description": "Telegram username",
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "description": "Additional comments",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Application submitted successfully"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
         "/api/languages": {
             "get": {
                 "tags": [
@@ -299,6 +395,40 @@
     },
     "components": {
         "schemas": {
+            "FaqDescription": {
+                "required": [
+                    "question",
+                    "answer"
+                ],
+                "properties": {
+                    "question": {
+                        "description": "The question of the FAQ",
+                        "type": "string"
+                    },
+                    "answer": {
+                        "description": "The answer to the FAQ question",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Faq": {
+                "required": [
+                    "id",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "The FAQ identifier",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "description": {
+                        "$ref": "#/components/schemas/FaqDescription"
+                    }
+                },
+                "type": "object"
+            },
             "Language": {
                 "title": "Language",
                 "description": "Language entity",
@@ -486,6 +616,14 @@
         {
             "name": "Blog",
             "description": "Everything related to blog"
+        },
+        {
+            "name": "FAQs",
+            "description": "Everything related to FAQs"
+        },
+        {
+            "name": "Forms",
+            "description": "Everything related to website forms"
         },
         {
             "name": "Languages",
