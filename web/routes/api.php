@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BlogApiController;
+use App\Http\Controllers\Api\ContentPagesApiController;
 use App\Http\Controllers\Api\FaqsApiController;
 use App\Http\Controllers\Api\FormApiController;
 use App\Http\Controllers\Api\MenuApiController;
@@ -38,4 +39,5 @@ Route::apiResource('services', ServiceApiController::class)->only(['index']);
 Route::apiResource('blog', BlogApiController::class)->only(['index']);
 Route::apiResource('form', FormApiController::class)->only(['store']);
 Route::apiResource('faqs', FaqsApiController::class)->only(['index']);
+Route::apiResource('content-pages', ContentPagesApiController::class)->only(['show']);
 

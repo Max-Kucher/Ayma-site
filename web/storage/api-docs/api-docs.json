@@ -67,6 +67,64 @@
                 }
             }
         },
+        "/api/content-pages/{contentPage}": {
+            "get": {
+                "tags": [
+                    "Content Pages"
+                ],
+                "summary": "Get a specific content page",
+                "description": "Retrieves a specific content page by its route.",
+                "operationId": "getContentPage",
+                "parameters": [
+                    {
+                        "name": "contentPage",
+                        "in": "path",
+                        "description": "The route of the content page to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "route": {
+                                            "description": "The route of the content page",
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "properties": {
+                                                "title": {
+                                                    "description": "The title of the content page description",
+                                                    "type": "string"
+                                                },
+                                                "content": {
+                                                    "description": "The HTML content of the content page description",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Content Page Not Found"
+                    }
+                }
+            }
+        },
         "/api/faqs": {
             "get": {
                 "tags": [
@@ -616,6 +674,10 @@
         {
             "name": "Blog",
             "description": "Everything related to blog"
+        },
+        {
+            "name": "Content Pages",
+            "description": "Everything related to content pages"
         },
         {
             "name": "FAQs",
