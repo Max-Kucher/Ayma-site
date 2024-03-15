@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Response\ResponseStrategy;
 use App\Http\Controllers\Controller;
+use App\Jobs\ParseMediumRssFeed;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpFoundation\Response;
 use OpenApi\Attributes\OpenApi as OA;

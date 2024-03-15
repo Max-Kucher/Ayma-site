@@ -35,7 +35,10 @@ class ParseMediumRssFeed implements ShouldQueue
                 'title' => $entry->getTitle(),
                 'link' => $entry->getLink(),
                 'pubDate' => $entry->getDateModified(),
-                'description' => $entry->getDescription(),
+                'description' => // mb_substr(
+                    strip_tags($entry->getContent(), '<b><strong><i><em><abbr><q><cite><code><kbd><samp><big><small>')
+                   // , 0, 250).'...',
+//                'author' => $entry->getAuthor(),
             ];
         }
 
