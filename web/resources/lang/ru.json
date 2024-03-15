@@ -27,5 +27,9 @@
     "settings.services.service": "Сервис",
 
     "settings.questions.question": "Вопрос",
-    "settings.questions.answer": "Ответ"
+    "settings.questions.answer": "Ответ",
+
+    "settings.content_pages.route.placeholder": "Введите маршрут страницы",
+    "settings.content_pages.title": "Заголовок",
+    "settings.content_pages.content": "Контент страницы"
 }
