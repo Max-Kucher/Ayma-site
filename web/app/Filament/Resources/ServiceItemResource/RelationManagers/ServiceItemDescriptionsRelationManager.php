@@ -32,6 +32,10 @@ class ServiceItemDescriptionsRelationManager extends RelationManager
                             ->label(__('settings.name'))
                             ->required()
                             ->maxLength(255),
+                        Forms\Components\TextInput::make('details_page_name')
+                            ->label(__('settings.service_items.descriptions.details_page_name'))
+                            ->required()
+                            ->maxLength(255),
                     ]),
             ]);
     }

@@ -612,6 +612,10 @@
                         "description": "Name of the Service Item",
                         "type": "string"
                     },
+                    "details_page_name": {
+                        "description": "Name of the Service Item for details page",
+                        "type": "string"
+                    },
                     "description": {
                         "properties": {
                             "name": {

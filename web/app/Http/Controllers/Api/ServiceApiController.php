@@ -55,11 +55,11 @@ class ServiceApiController extends Controller
     {
         // ToDo: Rework with API resources
         $services = Service::with(['description' => function ($query) {
-            $query->select('service_id', 'name', 'description');
+            $query->select('service_id', 'name', 'details_page_name', 'description');
         },
             'serviceItems' => function ($query) {
                 $query->with(['description' => function ($subQuery) {
-                    $subQuery->select('service_item_id', 'name');
+                    $subQuery->select('service_item_id', 'name', 'details_page_name');
                 }]);
             }])
             ->get(['id']);

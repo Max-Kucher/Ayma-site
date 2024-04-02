@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use OpenApi\Attributes\OpenApi as OA;
 
 /**
  * @OA\Schema(
@@ -25,6 +26,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  *             property="name",
  *             type="string",
  *             description="Name of the Service Item"
+ *         ),
+ *         @OA\Property(
+ *             property="details_page_name",
+ *             type="string",
+ *             description="Name of the Service Item for details page"
  *         ),
  *         @OA\Property(
  *             property="description",

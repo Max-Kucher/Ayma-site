@@ -31,5 +31,7 @@
 
     "settings.content_pages.route.placeholder": "Введите маршрут страницы",
     "settings.content_pages.title": "Заголовок",
-    "settings.content_pages.content": "Контент страницы"
+    "settings.content_pages.content": "Контент страницы",
+
+    "settings.service_items.descriptions.details_page_name": "Название для страницы деталей"
 }

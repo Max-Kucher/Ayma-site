@@ -30,6 +30,11 @@ use OpenApi\Attributes\OpenApi as OA;
  *                 description="Name of the Service Description"
  *             ),
  *             @OA\Property(
+ *                 property="details_page_name",
+ *                 type="string",
+ *                 description="Name of the Service for details page"
+ *             ),
+ *             @OA\Property(
  *                 property="description",
  *                 type="string",
  *                 description="Detailed description of the Service"
